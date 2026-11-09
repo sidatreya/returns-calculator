@@ -1,0 +1,410 @@
+{
+  "_brand": "Sidatreya Designs",
+  "_status": "FINAL case study \u2014 Sid confirmed data complete ([pt371u])",
+  "_title": "4081 East 64th Street, Cleveland, OH 44105 \u2014 S2 LLC (buyer) / Invest L.A.D. LLC (seller at purchase) / Managed by B2B Realty",
+  "label": "4081 E 64th St, Cleveland OH 44105 \u00b7 S2 LLC \u00b7 Managed by B2B Realty",
+  "buyingPrice": 75000,
+  "sellingPrice": 115000,
+  "monthlyRent": 1200,
+  "rentalYieldPct": null,
+  "annualMaintenance": 0,
+  "annualPropertyTax": 2092.32,
+  "annualCouncilFees": 0,
+  "agentMonthlyRetainer": 0,
+  "agentPctOfRent": 0,
+  "agentTravelOneOff": 0,
+  "companyFormationOneOff": 0,
+  "companyAnnualUpkeep": 0,
+  "holdingYears": 1.3607,
+  "notes": {
+    "property": "4081 East 64th Street, Cleveland, OH 44105",
+    "parcel": "132-24-100",
+    "buyer_llc": "S2 LLC, a California Limited Liability Company",
+    "seller_at_purchase": "Invest L.A.D. LLC, a Michigan Limited Liability Company",
+    "seller_at_exit": "S2 LLC",
+    "property_manager": "B2B Realty (B2B Property Management), Brooklyn, OH",
+    "title_purchase": "Chicago Title Company, LLC / Chicago Title Insurance Company; Woodland Title Agency, LLC",
+    "title_sale": "Infinity Title Agency, LLC / Infinity Title Solutions, LLC; Westcor Land Title Insurance Company",
+    "listing_agent_sale": "Coldwell Banker Schmidt Realty",
+    "selling_agent_sale": "HomeSmart Real Estate Momentum",
+    "purchase_order": "2471730033-20",
+    "sale_file": "2025-06-6951",
+    "purchase_settlement_date": "2024-03-01",
+    "deed_recorded": "2024-03-13",
+    "sale_settlement_date": "2025-07-11",
+    "sale_disbursement_date": "2025-07-14",
+    "lease_rent_monthly_usd": 810,
+    "lease_term_stated": "12 months beginning 06/01/2023 ending 05/31/2024 (lease signed 05/30/2024; auto month-to-month + $75/mo if not renewed)",
+    "sale_prorated_rent_note": "Seller settlement prorated rent $812.90 for 07/11/2025\u201307/31/2025 is consistent with ~$1,260/mo for 20 days. Actual collected rent from Sid's bank screenshots is $1,200/mo (Nov 2024\u2013Jun 2025). Preset uses $1,200.",
+    "earnest_money_usd": 1000,
+    "rent_deposit_on_purchase_credit_usd": 750,
+    "security_deposit_transferred_at_sale_usd": 600,
+    "plumbing_estimate_usd": 906.12,
+    "plumbing_estimate_date": "2024-07-09",
+    "plumbing_vendor": "Sal's Heating & Cooling, Inc. Plumbing and Sewer",
+    "purchase_closing_cost_lines_usd": {
+      "commitment_woodland_title": 37.5,
+      "escrow_service_fee_chicago_title": 980.0,
+      "cash_buyer_investor_closing_chicago_title": 440.0,
+      "owners_title_premium_listed": 431.25,
+      "owners_title_insurance_credit_line": 215.62,
+      "broker_fee_coldwell_banker_schmidt": 295.0,
+      "tax_proration_buyer_debit_60_days": 343.94,
+      "balance_due_from_buyer": 73184.18
+    },
+    "sale_closing_cost_lines_usd": {
+      "seller_credit": 2000.0,
+      "county_taxes_proration_2025_01_01_to_07_14": 1451.12,
+      "prorated_rent": 812.9,
+      "transfer_security_deposit": 600.0,
+      "contract_closer_fee": 150.0,
+      "courier_fee": 45.0,
+      "deed_prep": 100.0,
+      "wire_technology_fee": 35.0,
+      "county_transfer_tax": 460.0,
+      "listing_agent_commission_coldwell": 3450.0,
+      "selling_agent_commission_homesmart": 3450.0,
+      "title_settlement_closing_fee": 475.0,
+      "title_exam": 450.0,
+      "title_update_fee": 50.0,
+      "owners_title_policy_westcor": 330.62,
+      "city_cleveland_disclosure": 124.85,
+      "final_water_sewer_holdback": 250.0,
+      "listing_agent_broker_fee_coldwell": 295.0,
+      "sewer_bill_neorsd": 1240.38,
+      "water_bill_cleveland": 890.93,
+      "fh_lh_2024_taxes_plus_penalty": 2865.18,
+      "seller_debit_subtotal": 19525.98,
+      "due_to_seller": 95474.02
+    },
+    "no_india_agent_fees_in_docs": true,
+    "no_company_formation_cost_in_docs": true,
+    "no_hoa_in_docs": true,
+    "no_homeowners_insurance_annual_in_docs": true,
+    "actual_monthly_rent_usd": 1200,
+    "actual_rent_source": "Sid's bank screenshots (Zelle); tenant name omitted",
+    "actual_rent_payments": [
+      {
+        "date": "2024-06",
+        "amount": 800,
+        "status": "inferred",
+        "note": "First-month $800 from Sid's word; most likely Jun 2024 matching lease start \u2014 inferred, not a screenshot line",
+        "source": "Sid's word (inferred month)"
+      },
+      {
+        "date": "2024-07-03",
+        "amount": 1200,
+        "status": "documented",
+        "year_assumed": true,
+        "note": "Zelle credit \u2014 year not shown; assumed 2024",
+        "source": "Sid's bank screenshot 6d3b74a1\u2026jpg (highlighted line; ignore $15 line)"
+      },
+      {
+        "date": "2024-08",
+        "amount": 1200,
+        "status": "documented",
+        "note": "Month confirmed by Sid as a documented $1,200 receipt; exact day not in the latest file note",
+        "source": "Sid's bank screenshots (stated with the Jul/Sep set)"
+      },
+      {
+        "date": "2024-09-03",
+        "amount": 1200,
+        "status": "documented",
+        "year_assumed": true,
+        "note": "Zelle credit \u2014 year not shown; assumed 2024",
+        "source": "Sid's bank screenshot 6d801d4c\u2026jpg (highlighted line only)"
+      },
+      {
+        "date": "2024-10",
+        "amount": 1200,
+        "status": "estimate",
+        "note": "Oct 2024 fill-in at $1,200 (estimate) \u2014 not a bank receipt",
+        "source": "Sid (estimate to fill Oct gap)"
+      },
+      {
+        "date": "2024-11-01",
+        "amount": 1200,
+        "status": "documented",
+        "note": "Zelle credit \u2014 Chase statement",
+        "source": "Sid's bank screenshots fb2b44ff\u2026jpg / 1bfb05c8\u2026jpg"
+      },
+      {
+        "date": "2024-12-04",
+        "amount": 1200,
+        "status": "documented",
+        "note": "Zelle credit",
+        "source": "Sid's bank screenshots"
+      },
+      {
+        "date": "2025-01-02",
+        "amount": 1200,
+        "status": "documented",
+        "note": "Zelle credit",
+        "source": "Sid's bank screenshots"
+      },
+      {
+        "date": "2025-02-04",
+        "amount": 1200,
+        "status": "documented",
+        "note": "Zelle credit",
+        "source": "Sid's bank screenshots"
+      },
+      {
+        "date": "2025-03-06",
+        "amount": 1200,
+        "status": "documented",
+        "note": "Zelle credit",
+        "source": "Sid's bank screenshots"
+      },
+      {
+        "date": "2025-04-04",
+        "amount": 1200,
+        "status": "documented",
+        "note": "Zelle credit",
+        "source": "Sid's bank screenshots"
+      },
+      {
+        "date": "2025-05-05",
+        "amount": 1200,
+        "status": "documented",
+        "note": "Zelle credit",
+        "source": "Sid's bank screenshots"
+      },
+      {
+        "date": "2025-06-04",
+        "amount": 1200,
+        "status": "documented",
+        "note": "Zelle credit",
+        "source": "Sid's bank screenshots"
+      },
+      {
+        "date": "2025-07-07",
+        "amount": 1275,
+        "status": "documented",
+        "year_assumed": true,
+        "note": "Zelle credit \u2014 year not shown; assumed 2025. Possibly includes a fee on top of base rent.",
+        "source": "Sid's bank screenshot b8d7bc01\u2026jpg (highlighted rent line)"
+      }
+    ],
+    "actual_rent_payments_count": 14,
+    "actual_rent_payments_total_usd": 16475,
+    "actual_rent_documented_count": 12,
+    "actual_rent_documented_total_usd": 14475,
+    "actual_rent_estimate_oct_2024_usd": 1200,
+    "actual_rent_inferred_first_month_usd": 800,
+    "actual_rent_inferred_first_month": "2024-06 (inferred)",
+    "actual_rent_schedule_total_usd": 16475,
+    "purchase_cash_outlay_usd": 74184.18,
+    "purchase_cash_outlay_method": "Balance due FROM buyer on buyer statement ($73,184.18) + earnest already paid ($1,000) = $74,184.18. purchaseClosingCosts = outlay \u2212 price = $74,184.18 \u2212 $75,000 = \u2212$815.82 (credits for deposit/rent/title outweighed fee lines).",
+    "net_sale_proceeds_usd": 98405.1,
+    "net_sale_proceeds_bank_confirmed": true,
+    "net_sale_proceeds_bank_source": "Fedwire $95,474.02 from Infinity Title (b8d7bc01\u2026jpg, 07/15/2025, ref 2025-06-6951) + tax refund $2,931.08 (Sid) = $98405.10 total sale payment received. Tax refund is included ONLY in net proceeds \u2014 not also as a property-tax reduction (no double count).",
+    "sale_costs_usd": 16594.9,
+    "sale_costs_method": "saleCosts = sale price $115,000 \u2212 total sale payment received $98405.10 = $16594.9. Bridge still embeds settlement passthroughs relative to the wire; the tax refund increases net proceeds and therefore lowers saleCosts. Do not also cut annualPropertyTax for this refund.",
+    "passthroughs_in_sale_costs": {
+      "security_deposit_transfer": 600.0,
+      "prorated_rent_to_buyer": 812.9,
+      "treatment": "Inside saleCosts via net-proceeds bridge; not deducted again from rent collected"
+    },
+    "plumbing_estimate_in_calculator": "otherOneOffCosts = 906.12 (ESTIMATE \u2014 not confirmed paid)",
+    "net_sale_proceeds_wire_usd": 95474.02,
+    "net_sale_proceeds_tax_refund_usd": 2931.08,
+    "agent_fees": "Already deducted: rent received is net of B2B Realty agent fees, per Sid",
+    "actual_rent_is_net_of_management": true,
+    "council_and_company_fees": "None documented; Sid confirmed data complete",
+    "data_complete": true,
+    "plumbing_rent_effect": "The $906.12 sink and faucet repair (Sal's Heating & Cooling, 9 Jul 2024) was the only maintenance paid over the hold and took the rent from $800 to $1,200 (done right before the $1,200 lease started).",
+    "maintenance_complete": true,
+    "annual_maintenance": "Sid confirms the $906.12 Sal's sink and faucet job (9 Jul 2024) was the ONLY maintenance cost ever paid over the whole hold, done right before the $1,200 lease started. annualMaintenance=0; $906.12 kept as otherOneOffCosts."
+  },
+  "missing_for_calculator": [
+    "Exact day for Aug 2024 $1,200; years assumed on Jul/Sep 2024 and Jul 2025 screenshot lines",
+    "Whether Jul 2025 $1,275 includes a fee vs pure rent"
+  ],
+  "sources": [
+    {
+      "field": "buyingPrice",
+      "value": 75000,
+      "source": "Buyer's Statement (OCR 62183edc\u2026pdf p1) 'Sale Price of Property 75,000.00'; also Deed OCR 7c9abcd8\u2026pdf p1 AMT $75,000.00; Owner's Policy c5c51526\u2026pdf Schedule A Amount of Insurance $75,000.00"
+    },
+    {
+      "field": "sellingPrice",
+      "value": 115000,
+      "source": "ALTA Seller's Settlement Statement OCR 9605c77a\u2026pdf p1 'Sale Price of Property $115,000.00' (File 2025-06-6951)"
+    },
+    {
+      "field": "purchase_settlement_date",
+      "value": "2024-03-01",
+      "source": "Buyer's Statement 62183edc\u2026pdf p1 Settlement/Disbursement Date March 1, 2024"
+    },
+    {
+      "field": "sale_settlement_date",
+      "value": "2025-07-11",
+      "source": "Seller's Settlement 9605c77a\u2026pdf p1 Settlement Date 07/11/2025; Disbursement 07/14/2025"
+    },
+    {
+      "field": "holdingYears",
+      "value": 1.3607,
+      "source": "Computed from purchase settlement 2024-03-01 to sale settlement 2025-07-11"
+    },
+    {
+      "field": "earnest_money",
+      "value": 1000,
+      "source": "a6134a32\u2026pdf p1 Amount $1,000.00; also Buyer's Statement Deposit credit 1,000.00"
+    },
+    {
+      "field": "annualPropertyTax",
+      "value": 2092.32,
+      "source": "Title commitment 97911abb\u2026pdf Schedule B: 2023 taxes $1,046.16 per half (= $2,092.32/yr); Buyer's Statement 'PPN: 132-24-100 at $2,092.32'"
+    },
+    {
+      "field": "plumbing_estimate",
+      "value": 906.12,
+      "source": "41b025c3\u2026pdf p1 Estimate #133766523 Jul 09, 2024 TOTAL $906.12 (Sal's Heating & Cooling)"
+    },
+    {
+      "field": "property_manager",
+      "value": "B2B Realty",
+      "source": "Lease b8002538\u2026pdf \u00a71.1 and \u00a71.31; B2B Property Management pages in same PDF"
+    },
+    {
+      "field": "buyer_llc",
+      "value": "S2 LLC",
+      "source": "Earnest, title commitment/policy, buyer's statement, deed, seller's settlement"
+    },
+    {
+      "field": "seller_at_purchase",
+      "value": "Invest L.A.D. LLC",
+      "source": "Earnest a6134a32\u2026pdf; title commitment; deed 7c9abcd8\u2026pdf; buyer's statement"
+    },
+    {
+      "field": "title_purchase",
+      "value": "Chicago Title / Woodland Title",
+      "source": "Commitment 97911abb\u2026pdf; Policy c5c51526\u2026pdf; Buyer's Statement"
+    },
+    {
+      "field": "title_sale",
+      "value": "Infinity Title Agency",
+      "source": "9605c77a\u2026pdf p1"
+    },
+    {
+      "field": "sale_listing_commission",
+      "value": 3450,
+      "source": "9605c77a\u2026pdf p1 Listing Agent Commission to Coldwell Banker Schmidt Realty $3,450.00"
+    },
+    {
+      "field": "sale_selling_commission",
+      "value": 3450,
+      "source": "9605c77a\u2026pdf p1 Selling Agent Commission to HomeSmart Real Estate Momentum $3,450.00"
+    },
+    {
+      "field": "security_deposit_at_sale",
+      "value": 600,
+      "source": "9605c77a\u2026pdf p1 Transfer of Security Deposit for Rent $600.00"
+    },
+    {
+      "field": "rent_deposit_at_purchase",
+      "value": 750,
+      "source": "Buyer's Statement 62183edc\u2026pdf Rent Deposit-Bldg credit 750.00"
+    },
+    {
+      "field": "owners_policy_date_amount",
+      "value": "2024-03-13 / $75,000",
+      "source": "c5c51526\u2026pdf Schedule A Date of Policy March 13, 2024 Amount of Insurance $75,000.00"
+    },
+    {
+      "field": "sale_documented",
+      "value": true,
+      "source": "9605c77a\u2026pdf Seller's Settlement \u2014 property was sold July 2025"
+    },
+    {
+      "field": "actual_rent_oct_estimate",
+      "value": 1200,
+      "source": "Sid \u2014 Oct 2024 fill-in estimate at $1,200"
+    },
+    {
+      "field": "actual_rent_first_month_inferred",
+      "value": 800,
+      "source": "Sid's word \u2014 $800 first month, inferred as Jun 2024 (lease start)"
+    },
+    {
+      "field": "purchaseClosingCosts",
+      "value": -815.82,
+      "source": "Buyer statement: cash outlay $74,184.18 (= $73,184.18 due + $1,000 earnest) \u2212 price $75,000"
+    },
+    {
+      "field": "actualRentCollected",
+      "value": 16475,
+      "source": "Sum of documented/estimated/inferred rent schedule including Jul 2025 $1,275 Zelle (b8d7bc01\u2026jpg); $812.90 prorated rent not subtracted again from this total"
+    },
+    {
+      "field": "jul_2025_rent",
+      "value": 1275,
+      "source": "b8d7bc01\u2026jpg Zelle 07/07 assumed 2025; may include a fee"
+    },
+    {
+      "field": "otherOneOffCosts",
+      "value": 906.12,
+      "source": "Plumbing ESTIMATE 41b025c3\u2026pdf $906.12 \u2014 marked estimate"
+    },
+    {
+      "field": "net_sale_proceeds",
+      "value": 98405.1,
+      "source": "Wire $95,474.02 (bank-confirmed) + tax refund $2,931.08 (Sid) = $98405.1"
+    },
+    {
+      "field": "tax_refund_on_sale",
+      "value": 2931.08,
+      "source": "Sid \u2014 add to sale payment received; not a separate tax-line credit in the calculator"
+    },
+    {
+      "field": "saleCosts",
+      "value": 16594.9,
+      "source": "$115,000 \u2212 $98405.1 = $16594.9"
+    },
+    {
+      "field": "agent_fees",
+      "value": 0,
+      "source": "Already deducted: rent received is net of B2B Realty agent fees, per Sid ([pt364u])"
+    },
+    {
+      "field": "annualCouncilFees",
+      "value": 0,
+      "source": "None documented; Sid confirmed data complete"
+    },
+    {
+      "field": "companyFormationOneOff",
+      "value": 0,
+      "source": "None documented; Sid confirmed data complete"
+    },
+    {
+      "field": "companyAnnualUpkeep",
+      "value": 0,
+      "source": "None documented; Sid confirmed data complete"
+    },
+    {
+      "field": "plumbing_rent_effect",
+      "value": 906.12,
+      "source": "Sid: Sal's $906.12 sink/faucet repair 9 Jul 2024 took rent from $800 to $1,200"
+    },
+    {
+      "field": "status",
+      "value": "FINAL",
+      "source": "Sid [pt371u]: This is it \u2014 data complete"
+    },
+    {
+      "field": "annualMaintenance",
+      "value": 0,
+      "source": "Sid: only maintenance was Sal's $906.12 one-off (in otherOneOffCosts); annual=0"
+    },
+    {
+      "field": "maintenance_complete",
+      "value": true,
+      "source": "Sid confirmed \u2014 only maintenance over whole hold was the $906.12 job"
+    }
+  ],
+  "purchaseClosingCosts": -815.82,
+  "saleCosts": 16594.9,
+  "actualRentCollected": 16475,
+  "otherOneOffCosts": 906.12
+}

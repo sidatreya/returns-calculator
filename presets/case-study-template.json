@@ -1,0 +1,29 @@
+{
+  "_status": "EMPTY \u2014 waiting for Sid's real case-study data",
+  "_instructions": "Fill with a real US house bought and sold within the last two years. All fee figures must come from Sid. Do not invent numbers. Once filled, this preset feeds an averaging calculator built on top of the prototype.",
+  "_brand": "Sidatreya Designs",
+  "label": "",
+  "buyingPrice": null,
+  "sellingPrice": null,
+  "monthlyRent": null,
+  "rentalYieldPct": null,
+  "annualMaintenance": null,
+  "annualPropertyTax": null,
+  "annualCouncilFees": null,
+  "agentMonthlyRetainer": null,
+  "agentPctOfRent": null,
+  "agentTravelOneOff": null,
+  "companyFormationOneOff": null,
+  "companyAnnualUpkeep": null,
+  "holdingYears": null,
+  "notes": {
+    "address": "",
+    "buyDate": "",
+    "sellDate": "",
+    "source": ""
+  },
+  "purchaseClosingCosts": null,
+  "saleCosts": null,
+  "actualRentCollected": null,
+  "otherOneOffCosts": null
+}

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sidatreya Designs — Returns & Yields Calculator (prototype)</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --panel: #1a2332;
+      --panel2: #243044;
+      --ink: #e8eef7;
+      --muted: #9aadc4;
+      --accent: #3dbb8f;
+      --accent2: #5b9fd4;
+      --warn: #e6b35a;
+      --bad: #e07a7a;
+      --line: #2e3d52;
+      --radius: 12px;
+      --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: radial-gradient(1200px 600px at 10% -10%, #1c3a4f 0%, var(--bg) 55%);
+      color: var(--ink);
+      line-height: 1.45;
+      min-height: 100vh;
+    }
+    header {
+      padding: 1.25rem 1.5rem 0.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.45rem;
+      font-weight: 650;
+    }
+    header .sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 60rem;
+    }
+    .badge {
+      display: inline-block;
+      background: #2a4060;
+      color: var(--warn);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      margin-bottom: 0.6rem;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 860px) {
+      main { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem 1.15rem;
+    }
+    .card h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    .caption {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: -0.35rem 0 0.85rem;
+    }
+    fieldset {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin: 0 0 0.85rem;
+      padding: 0.65rem 0.75rem 0.85rem;
+    }
+    legend {
+      padding: 0 0.35rem;
+      color: var(--accent2);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem 0.75rem;
+    }
+    @media (max-width: 520px) {
+      .grid2 { grid-template-columns: 1fr; }
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    label.full { grid-column: 1 / -1; }
+    input, select {
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 0.45rem 0.55rem;
+      font-size: 0.95rem;
+    }
+    input:focus, select:focus {
+      outline: 2px solid #3d7ab8;
+      outline-offset: 1px;
+    }
+    input::placeholder { color: #6d8099; font-size: 0.85rem; }
+    .hint {
+      font-size: 0.72rem;
+      color: #7f93ab;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+    }
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 0.85rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button.primary { background: var(--accent); color: #062218; }
+    button.ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--line);
+    }
+    button:hover { filter: brightness(1.08); }
+    .results { display: flex; flex-direction: column; gap: 0.75rem; }
+    .metric {
+      background: var(--panel2);
+      border-radius: 10px;
+      padding: 0.7rem 0.8rem;
+      border: 1px solid var(--line);
+    }
+    .metric .name {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .metric .value {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 0.15rem 0;
+    }
+    .metric .value.pos { color: var(--accent); }
+    .metric .value.neg { color: var(--bad); }
+    .metric .explain {
+      font-size: 0.8rem;
+      color: #b7c6d8;
+    }
+    table.breakdown {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    table.breakdown th, table.breakdown td {
+      text-align: left;
+      padding: 0.4rem 0.35rem;
+      border-bottom: 1px solid var(--line);
+    }
+    table.breakdown th { color: var(--muted); font-weight: 560; }
+    table.breakdown td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .bar-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-top: 0.35rem;
+    }
+    .bar-row { display: grid; grid-template-columns: 7.5rem 1fr 4.5rem; gap: 0.4rem; align-items: center; font-size: 0.8rem; }
+    .bar-track {
+      height: 10px;
+      background: #152033;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2f8f6e, #5b9fd4);
+      min-width: 0;
+    }
+    .bar-row span.val { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .notice {
+      background: #2a2418;
+      border: 1px solid #5a4a28;
+      color: #e6d2a0;
+      border-radius: 10px;
+      padding: 0.65rem 0.8rem;
+      font-size: 0.82rem;
+      margin-bottom: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">PROTOTYPE · not linked to the property tool yet</div>
+    <h1>Sidatreya Designs — Returns & Yields Calculator</h1>
+    <p class="sub">
+      Work out rental yield and overall return for a US property, including India-dispatched agent costs and company formation fees.
+      Fee boxes default to zero — fill in Sid’s real figures when ready. A later case study will sit on top of this prototype.
+    </p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="inputs-title">
+      <h2 id="inputs-title">Inputs</h2>
+      <p class="caption">Legend: enter buy, sell, rent (or yield), yearly costs, agent and company fees, and how many years you hold. All money is USD.</p>
+
+      <div class="notice" id="preset-notice">
+        Case-study preset is empty and waiting for Sid’s real bought-and-sold house data. Dummy example numbers can be loaded for a walkthrough only.
+      </div>
+
+      <fieldset>
+        <legend>Property prices & hold</legend>
+        <div class="grid2">
+          <label>Buying price (USD)
+            <input id="buyingPrice" type="number" min="0" step="100" placeholder="e.g. wait for Sid’s figure" value="0" />
+          </label>
+          <label>Selling price (USD)
+            <input id="sellingPrice" type="number" min="0" step="100" placeholder="exit price — Sid to fill" value="0" />
+          </label>
+          <label>Holding period (years)
+            <input id="holdingYears" type="number" min="0" step="0.25" value="2" />
+          </label>
+          <label>Label (optional)
+            <input id="label" type="text" placeholder="address or case-study name" />
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Rent / yield (linked both ways)</legend>
+        <div class="grid2">
+          <label>Monthly rent (USD)
+            <input id="monthlyRent" type="number" min="0" step="10" placeholder="or leave blank and use yield %" value="0" />
+            <span class="hint">If both are set, monthly rent wins and yield is calculated.</span>
+          </label>
+          <label>Current rental yield (% of buy / year)
+            <input id="rentalYieldPct" type="number" min="0" step="0.1" placeholder="gross yield %" value="0" />
+            <span class="hint">Fills monthly rent from buy price when rent is zero.</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Yearly property costs (default 0 — Sid fills later)</legend>
+        <div class="grid2">
+          <label>Annual maintenance (USD)
+            <input id="annualMaintenance" type="number" min="0" step="50" placeholder="0 — placeholder" value="0" />
+          </label>
+          <label>Annual property tax (USD)
+            <input id="annualPropertyTax" type="number" min="0" step="50" placeholder="0 — placeholder" value="0" />
+          </label>
+          <label class="full">Council / local fees (USD / year)
+            <input id="annualCouncilFees" type="number" min="0" step="50" placeholder="0 — placeholder" value="0" />
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Agent fees (India → US managers)</legend>
+        <p class="caption">Agents are dispatched from India to manage US properties, so agent cost is a core input.</p>
+        <div class="grid2">
+          <label>Monthly retainer (USD)
+            <input id="agentMonthlyRetainer" type="number" min="0" step="10" placeholder="0 — Sid to fill" value="0" />
+          </label>
+          <label>% of rent
+            <input id="agentPctOfRent" type="number" min="0" step="0.1" placeholder="0 — Sid to fill" value="0" />
+          </label>
+          <label class="full">One-off travel / dispatch (USD)
+            <input id="agentTravelOneOff" type="number" min="0" step="50" placeholder="0 — Sid to fill" value="0" />
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Company formation</legend>
+        <div class="grid2">
+          <label>Formation fees — one-off (USD)
+            <input id="companyFormationOneOff" type="number" min="0" step="50" placeholder="0 — Sid to fill" value="0" />
+          </label>
+          <label>Annual upkeep (USD / year)
+            <input id="companyAnnualUpkeep" type="number" min="0" step="50" placeholder="0 — optional" value="0" />
+          </label>
+        </div>
+      </fieldset>
+
+
+      <fieldset>
+        <legend>Honest cash (closing, sale, actual rent)</legend>
+        <p class="caption">Legend: purchase closing costs are net cash beyond the price (negative if credits outweighed fees). Sale costs bridge sale price to net proceeds. Actual rent collected overrides rate × years when filled.</p>
+        <div class="grid2">
+          <label>Purchase closing costs (USD, net)
+            <input id="purchaseClosingCosts" type="number" step="0.01" placeholder="0 — can be negative" value="0" />
+            <span class="hint">Cash outlay − buy price. Example: due at closing + earnest − price.</span>
+          </label>
+          <label>Sale costs (USD)
+            <input id="saleCosts" type="number" min="0" step="0.01" placeholder="0 — commissions + seller debits" value="0" />
+            <span class="hint">Sale price − net proceeds to seller.</span>
+          </label>
+          <label>Actual rent collected (USD, optional)
+            <input id="actualRentCollected" type="number" min="0" step="0.01" placeholder="leave blank to use rate × years" value="" />
+            <span class="hint">Total gross rent that hit the bank over the hold.</span>
+          </label>
+          <label>Other one-off costs (USD)
+            <input id="otherOneOffCosts" type="number" min="0" step="0.01" placeholder="0 — repairs estimate etc." value="0" />
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="button" class="primary" id="btn-calc">Calculate</button>
+        <button type="button" class="ghost" id="btn-example">Load EXAMPLE numbers</button>
+        <button type="button" class="ghost" id="btn-clear">Reset to zeros</button>
+        <button type="button" class="ghost" id="btn-preset">Load empty case-study template</button>
+        <button type="button" class="ghost" id="btn-case4081">Load 4081 E 64th Cleveland case study</button>
+      </div>
+    </section>
+
+    <section class="card results" aria-labelledby="results-title">
+      <h2 id="results-title">Results</h2>
+      <p class="caption">Legend: each block is one outcome metric, with a short plain-language note under it. Analysis only — not advice to buy or sell.</p>
+
+      <div id="metrics"></div>
+
+      <div class="card" style="background:var(--panel2);padding:0.85rem;margin-top:0.25rem;">
+        <h2 style="font-size:0.95rem;">Cost breakdown table</h2>
+        <p class="caption">Legend: yearly operating lines plus one-off costs used in the totals above.</p>
+        <table class="breakdown" id="breakdown-table">
+          <thead><tr><th>Item</th><th style="text-align:right;">USD</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="card" style="background:var(--panel2);padding:0.85rem;">
+        <h2 style="font-size:0.95rem;">Return mix chart</h2>
+        <p class="caption">Legend: how total return is built from net rent over the hold, capital gain, and one-off costs taken out.</p>
+        <div class="bar-chart" id="bar-chart"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Sidatreya Designs · prototype plugin for the US property identification tool · fees default to 0 until Sid supplies real figures · case-study averaging comes later
+  </footer>
+
+  <script type="module">
+    import { compute } from "./calc-core.js";
+
+    const FIELDS = [
+      "buyingPrice", "sellingPrice", "holdingYears", "label",
+      "monthlyRent", "rentalYieldPct",
+      "annualMaintenance", "annualPropertyTax", "annualCouncilFees",
+      "agentMonthlyRetainer", "agentPctOfRent", "agentTravelOneOff",
+      "companyFormationOneOff", "companyAnnualUpkeep",
+      "purchaseClosingCosts", "saleCosts", "actualRentCollected", "otherOneOffCosts",
+    ];
+
+    const money = (n) =>
+      n == null || !Number.isFinite(n)
+        ? "—"
+        : n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+    const pct = (n) =>
+      n == null || !Number.isFinite(n) ? "—" : `${n.toFixed(2)}%`;
+
+    const yrs = (n) =>
+      n == null || !Number.isFinite(n) ? "—" : `${n.toFixed(2)} years`;
+
+    function readInputs() {
+      const o = {};
+      for (const id of FIELDS) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (id === "label") o.label = el.value.trim() || null;
+        else if (id === "actualRentCollected") o.actualRentCollected = el.value === "" ? null : Number(el.value);
+        else o[id] = el.value === "" ? 0 : Number(el.value);
+      }
+      // Prefer monthly rent when > 0; else use yield
+      if (!(o.monthlyRent > 0) && o.rentalYieldPct > 0) {
+        delete o.monthlyRent;
+      } else {
+        delete o.rentalYieldPct;
+      }
+      return o;
+    }
+
+    function writeInputs(obj, { notice } = {}) {
+      for (const id of FIELDS) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (id === "label") el.value = obj.label ?? "";
+        else if (obj[id] == null) el.value = "";
+        else el.value = obj[id];
+      }
+      if (notice) {
+        document.getElementById("preset-notice").textContent = notice;
+      }
+      render();
+    }
+
+    function tone(n) {
+      if (n == null || !Number.isFinite(n)) return "";
+      if (n > 0) return "pos";
+      if (n < 0) return "neg";
+      return "";
+    }
+
+    function metric(name, valueHtml, explain, cls = "") {
+      return `<div class="metric">
+        <div class="name">${name}</div>
+        <div class="value ${cls}">${valueHtml}</div>
+        <div class="explain">${explain}</div>
+      </div>`;
+    }
+
+    function render() {
+      const result = compute(readInputs());
+      const ex = result.explanations;
+
+      // Keep the linked rent/yield fields in sync visually
+      const rentEl = document.getElementById("monthlyRent");
+      const yieldEl = document.getElementById("rentalYieldPct");
+      if (document.activeElement !== rentEl) {
+        // don't fight the user mid-type on the other field
+      }
+      if (document.activeElement !== yieldEl && result.grossRentalYieldPct) {
+        // show derived yield when rent was the driver
+      }
+
+      const html = [
+        metric("Gross rental yield", pct(result.grossRentalYieldPct), ex.grossRentalYieldPct, tone(result.grossRentalYieldPct)),
+        metric("Net rental yield", pct(result.netRentalYieldPct), ex.netRentalYieldPct, tone(result.netRentalYieldPct)),
+        metric("Annual net rental income", money(result.annualNetRentalIncome), ex.annualNetRentalIncome, tone(result.annualNetRentalIncome)),
+        metric("Total net rental income (over hold)", money(result.totalNetRentalIncome), ex.totalNetRentalIncome, tone(result.totalNetRentalIncome)),
+        metric("Capital gain on sale (net of sale costs)", money(result.capitalGain), ex.capitalGain, tone(result.capitalGain)),
+        metric("Net sale proceeds", money(result.netSaleProceeds), "Sale price minus sale costs (what should hit the bank after closing).", tone(result.netSaleProceeds)),
+        metric("Cash invested at purchase", money(result.cashInvested), "Buy price plus net purchase closing costs and buy-side one-offs."),
+        metric("Purchase closing costs (net)", money(result.purchaseClosingCosts), ex.purchaseClosingCosts, tone(result.purchaseClosingCosts)),
+        metric("Sale costs", money(result.saleCosts), ex.saleCosts),
+        metric("Net profit (total return)", money(result.totalReturn), ex.totalReturn, tone(result.totalReturn)),
+        metric("ROI %", pct(result.roiPct), ex.roiPct, tone(result.roiPct)),
+        metric("Annualised return (CAGR-style)", pct(result.annualisedReturnPct), ex.annualisedReturnPct, tone(result.annualisedReturnPct)),
+        metric("Cash-on-cash", pct(result.cashOnCashPct), ex.cashOnCashPct, tone(result.cashOnCashPct)),
+        metric("Break-even (years from rent alone)", yrs(result.breakEvenYears), ex.breakEvenYears),
+        metric("Break-even sale price", money(result.breakEvenSalePrice), ex.breakEvenSalePrice),
+        metric("Cash invested", money(result.cashInvested), "Buy price plus one-off agent travel and company formation."),
+      ].join("");
+
+      document.getElementById("metrics").innerHTML = html;
+
+      const rows = [
+        ["Annual gross rent (rate)", result.breakdown.annualGrossRent],
+        ["Gross rent over hold (used)", result.breakdown.grossRentTotal],
+        ["Maintenance (year)", result.breakdown.annualMaintenance],
+        ["Property tax (year)", result.breakdown.annualPropertyTax],
+        ["Council / local fees (year)", result.breakdown.annualCouncilFees],
+        ["Agent retainer (year)", result.breakdown.agentRetainerAnnual],
+        ["Agent % of rent (year)", result.breakdown.agentFromRent],
+        ["Company upkeep (year)", result.breakdown.companyAnnualUpkeep],
+        ["Operating costs over hold", result.breakdown.operatingCostsTotal],
+        ["Other one-off costs", result.breakdown.otherOneOffCosts],
+        ["Purchase closing costs (net)", result.breakdown.purchaseClosingCosts],
+        ["Sale costs", result.breakdown.saleCosts],
+        ["Net sale proceeds", result.breakdown.netSaleProceeds],
+        ["Buy-side one-offs (travel + formation)", result.breakdown.buySideOneOffs],
+      ];
+      document.querySelector("#breakdown-table tbody").innerHTML = rows
+        .map(([k, v]) => `<tr><td>${k}</td><td class="num">${money(v)}</td></tr>`)
+        .join("");
+
+      // Simple absolute bar mix
+      const parts = [
+        { name: "Net rent total", v: result.totalNetRentalIncome },
+        { name: "Capital gain", v: result.capitalGain },
+        { name: "One-off costs (−)", v: -result.oneOffCosts },
+      ];
+      const maxAbs = Math.max(1, ...parts.map((p) => Math.abs(p.v)));
+      document.getElementById("bar-chart").innerHTML = parts
+        .map((p) => {
+          const w = Math.min(100, (Math.abs(p.v) / maxAbs) * 100);
+          const color = p.v < 0 ? "#e07a7a" : undefined;
+          return `<div class="bar-row">
+            <span>${p.name}</span>
+            <div class="bar-track"><div class="bar-fill" style="width:${w}%;${color ? `background:${color}` : ""}"></div></div>
+            <span class="val">${money(p.v)}</span>
+          </div>`;
+        })
+        .join("");
+    }
+
+    // Live sync rent ↔ yield when user edits one
+    document.getElementById("monthlyRent").addEventListener("input", () => {
+      const buy = Number(document.getElementById("buyingPrice").value) || 0;
+      const monthly = Number(document.getElementById("monthlyRent").value) || 0;
+      if (buy > 0 && monthly > 0) {
+        document.getElementById("rentalYieldPct").value = ((monthly * 12) / buy * 100).toFixed(2);
+      }
+      render();
+    });
+    document.getElementById("rentalYieldPct").addEventListener("input", () => {
+      const buy = Number(document.getElementById("buyingPrice").value) || 0;
+      const y = Number(document.getElementById("rentalYieldPct").value) || 0;
+      if (buy > 0 && y > 0) {
+        document.getElementById("monthlyRent").value = ((buy * y) / 100 / 12).toFixed(2);
+      }
+      render();
+    });
+    document.getElementById("buyingPrice").addEventListener("input", () => {
+      const buy = Number(document.getElementById("buyingPrice").value) || 0;
+      const monthly = Number(document.getElementById("monthlyRent").value) || 0;
+      if (buy > 0 && monthly > 0) {
+        document.getElementById("rentalYieldPct").value = ((monthly * 12) / buy * 100).toFixed(2);
+      }
+      render();
+    });
+
+    for (const id of FIELDS) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      if (id === "monthlyRent" || id === "rentalYieldPct" || id === "buyingPrice") continue;
+      el.addEventListener("input", render);
+    }
+
+    document.getElementById("btn-calc").addEventListener("click", render);
+
+    document.getElementById("btn-example").addEventListener("click", () => {
+      writeInputs(
+        {
+          label: "EXAMPLE DATA — dummy numbers only",
+          buyingPrice: 100000,
+          sellingPrice: 120000,
+          monthlyRent: 1000,
+          rentalYieldPct: 12,
+          annualMaintenance: 1000,
+          annualPropertyTax: 1200,
+          annualCouncilFees: 300,
+          agentMonthlyRetainer: 100,
+          agentPctOfRent: 5,
+          agentTravelOneOff: 2000,
+          companyFormationOneOff: 1500,
+          companyAnnualUpkeep: 500,
+          holdingYears: 2,
+          purchaseClosingCosts: 0,
+          saleCosts: 0,
+          actualRentCollected: "",
+          otherOneOffCosts: 0,
+        },
+        {
+          notice:
+            "Showing labelled EXAMPLE DATA only (not a real property, not Sid’s fees). Replace with real figures when ready. Case-study template remains empty.",
+        }
+      );
+    });
+
+    document.getElementById("btn-clear").addEventListener("click", () => {
+      writeInputs(
+        {
+          label: "",
+          buyingPrice: 0,
+          sellingPrice: 0,
+          monthlyRent: 0,
+          rentalYieldPct: 0,
+          annualMaintenance: 0,
+          annualPropertyTax: 0,
+          annualCouncilFees: 0,
+          agentMonthlyRetainer: 0,
+          agentPctOfRent: 0,
+          agentTravelOneOff: 0,
+          companyFormationOneOff: 0,
+          companyAnnualUpkeep: 0,
+          holdingYears: 2,
+          purchaseClosingCosts: 0,
+          saleCosts: 0,
+          actualRentCollected: "",
+          otherOneOffCosts: 0,
+        },
+        {
+          notice:
+            "All fees reset to 0. Case-study preset is still empty and waiting for Sid’s real bought-and-sold house data.",
+        }
+      );
+    });
+
+    document.getElementById("btn-case4081").addEventListener("click", async () => {
+      try {
+        const res = await fetch("./presets/case-study-4081-e64th-cleveland.json");
+        const data = await res.json();
+        writeInputs(
+          {
+            label: data.label || "",
+            buyingPrice: data.buyingPrice ?? 0,
+            sellingPrice: data.sellingPrice ?? 0,
+            monthlyRent: data.monthlyRent ?? 0,
+            rentalYieldPct: data.rentalYieldPct ?? 0,
+            annualMaintenance: data.annualMaintenance ?? 0,
+            annualPropertyTax: data.annualPropertyTax ?? 0,
+            annualCouncilFees: data.annualCouncilFees ?? 0,
+            agentMonthlyRetainer: data.agentMonthlyRetainer ?? 0,
+            agentPctOfRent: data.agentPctOfRent ?? 0,
+            agentTravelOneOff: data.agentTravelOneOff ?? 0,
+            companyFormationOneOff: data.companyFormationOneOff ?? 0,
+            companyAnnualUpkeep: data.companyAnnualUpkeep ?? 0,
+            holdingYears: data.holdingYears ?? 2,
+            purchaseClosingCosts: data.purchaseClosingCosts ?? 0,
+            saleCosts: data.saleCosts ?? 0,
+            actualRentCollected: data.actualRentCollected ?? "",
+            otherOneOffCosts: data.otherOneOffCosts ?? 0,
+          },
+          {
+            notice:
+              "Loaded 4081 E 64th Cleveland case study (S2 LLC / Managed by B2B Realty). Uses bank-confirmed net proceeds, actual rent collected, and net purchase outlay. Missing agent/company fees stay 0. Analysis only — not advice.",
+          }
+        );
+      } catch (e) {
+        document.getElementById("preset-notice").textContent =
+          "Could not load presets/case-study-4081-e64th-cleveland.json (use the local/public server).";
+      }
+    });
+
+    document.getElementById("btn-preset").addEventListener("click", async () => {
+      try {
+        const res = await fetch("./presets/case-study-template.json");
+        const data = await res.json();
+        writeInputs(
+          {
+            label: data.label || "",
+            buyingPrice: data.buyingPrice ?? 0,
+            sellingPrice: data.sellingPrice ?? 0,
+            monthlyRent: data.monthlyRent ?? 0,
+            rentalYieldPct: data.rentalYieldPct ?? 0,
+            annualMaintenance: data.annualMaintenance ?? 0,
+            annualPropertyTax: data.annualPropertyTax ?? 0,
+            annualCouncilFees: data.annualCouncilFees ?? 0,
+            agentMonthlyRetainer: data.agentMonthlyRetainer ?? 0,
+            agentPctOfRent: data.agentPctOfRent ?? 0,
+            agentTravelOneOff: data.agentTravelOneOff ?? 0,
+            companyFormationOneOff: data.companyFormationOneOff ?? 0,
+            companyAnnualUpkeep: data.companyAnnualUpkeep ?? 0,
+            holdingYears: data.holdingYears ?? 2,
+            purchaseClosingCosts: data.purchaseClosingCosts ?? 0,
+            saleCosts: data.saleCosts ?? 0,
+            actualRentCollected: data.actualRentCollected ?? "",
+            otherOneOffCosts: data.otherOneOffCosts ?? 0,
+          },
+          {
+            notice:
+              "Loaded empty case-study template — waiting for Sid’s real metrics. Do not treat zeros as real data.",
+          }
+        );
+      } catch (e) {
+        document.getElementById("preset-notice").textContent =
+          "Could not load presets/case-study-template.json (open via a local server if file:// blocks fetch).";
+      }
+    });
+
+    render();
+  </script>
+</body>
+</html>
