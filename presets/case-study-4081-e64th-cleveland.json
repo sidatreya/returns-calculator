@@ -77,7 +77,7 @@
       "seller_debit_subtotal": 19525.98,
       "due_to_seller": 95474.02
     },
-    "no_india_agent_fees_in_docs": true,
+    "no_separate_agent_fees_in_docs": true,
     "no_company_formation_cost_in_docs": true,
     "no_hoa_in_docs": true,
     "no_homeowners_insurance_annual_in_docs": true,

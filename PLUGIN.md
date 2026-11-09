@@ -5,7 +5,7 @@
 
 ## Purpose
 
-Later, the US property identification tool (`/workspace/us-realestate/app/`) will call this calculator for a selected deal so Sid can see rental yield + sale return after India-dispatched agent costs and company formation fees.
+Later, the US property identification tool (`/workspace/us-realestate/app/`) will call this calculator for a selected deal so Sid can see rental yield + sale return after US property-management / agent costs and company formation fees.
 
 ## How the property tool will call it (future)
 
@@ -34,7 +34,7 @@ const result = compute(inputs);
 | `annualMaintenance` | number USD/yr | 0 | Maintenance |
 | `annualPropertyTax` | number USD/yr | 0 | Property tax |
 | `annualCouncilFees` | number USD/yr | 0 | Council / local fees |
-| `agentMonthlyRetainer` | number USD/mo | 0 | India-dispatched agent retainer |
+| `agentMonthlyRetainer` | number USD/mo | 0 | US agent / management retainer |
 | `agentPctOfRent` | number % | 0 | Agent share of gross rent |
 | `agentTravelOneOff` | number USD | 0 | One-off travel / dispatch |
 | `companyFormationOneOff` | number USD | 0 | One-off company setup |
